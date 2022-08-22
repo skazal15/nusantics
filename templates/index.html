@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Nusantics</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    input[type="file"]
+{
+  display: none;
+}
+.fileUpload input.upload 
+{
+    display: inline-block;
+}
+  </style>
+</head>
+<body>
+
+<div class="container">
+  {% if show_app == "home" %}
+  <h2>Internal App</h2>
+  <form class="form-group" method="POST" action="/show">
+  <button type="submit" class="btn btn-info">Sequence Trimmer</button>
+  </form>    
+  {% elif show_app == "add" %}
+  <form class="form-group" enctype="multipart/form-data" method="POST" action="/add">
+    <div id="upload" class="fileUpload">
+      <label class="upload" style="cursor: pointer;">
+        <input name='file' type="file"/>
+      Please Select File
+      </label>
+      <br>
+      <button type="submit" class="btn btn-info">Upload File</button>
+    </div>
+   </form>  
+  {% endif %} 
+</div>
+
+</body>
+</html>
